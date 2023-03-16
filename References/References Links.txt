@@ -1,0 +1,27 @@
+----------------------------------------------------------------------------------------------
+Check Online Solver Here:
+http://www.hungarianalgorithm.com/solve.php?c=62-72-26-10--53-29-84-51--9-9-90-5--42-37-80-55&random=1
+
+----------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=cQ5MsiGaDY8
+
+http://www.hungarianalgorithm.com/examplehungarianalgorithm.php
+
+https://www.geeksforgeeks.org/hungarian-algorithm-assignment-problem-set-1-introduction/
+
+https://www.researchgate.net/figure/Hungarian-method-step-by-step-procedure-including-the-alternating-priority-strategy_fig1_257877477
+
+http://mathforum.org/library/drmath/view/76599.html
+
+PDF copy on-hand:
+http://www.math.harvard.edu/archive/20_spring_05/handouts/assignment_overheads.pdf
+
+https://math.stackexchange.com/questions/590305/finding-the-minimum-number-of-lines-to-cover-all-zeros-in-an-assignment-problem
+
+----------------------------------------------------------------------------------------------
+Last Resort References:
+http://dlib.net/dlib/optimization/max_cost_assignment.h.html
+http://dlib.net/dlib/test/max_cost_assignment.cpp.html
+https://gist.github.com/pathikrit/bc09b720f476c79a3553#file-library-java-L1396
+
+----------------------------------------------------------------------------------------------

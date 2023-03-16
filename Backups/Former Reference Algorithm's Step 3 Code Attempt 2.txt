@@ -1,0 +1,65 @@
+// Hungarian Method: Step 3
+void tracelines(float (&matrix)[9][9], bool (&traces)[2][9], int matrixsize){
+	bool unassigned[9];
+	int zerocount, rowszerocount[9];
+	// Count Each Row's Zeros
+	for (int x=0; x<matrixsize; x++){
+		zerocount = 0;
+		for (int y=0; y<matrixsize; y++){
+			if (matrix[x][y] == 0){
+				zerocount++;
+			}
+		}
+		rowszerocount[x] = zerocount;
+	}
+	// Step 3: a. Tick all unassigned rows
+	for (int x=0; x<matrixsize; x++){
+		unassigned[x] = false;
+	}
+	for (int x=0; x<matrixsize; x++){
+		// Tick Rows with Only One Zero
+		if (rowszerocount[x] == 1){
+			unassigned[x] = true;
+		}
+	}
+	// Step 3: b. Tick all (unticked) columns that have zeros in ticked rows
+	for (int x=0; x<matrixsize; x++){
+		if (unassigned[x] == true){
+			for (int y=0; y<matrixsize; y++){
+				if (matrix[x][y] == 0){
+					traces[1][y] = true;
+				}
+			}
+		}
+	}
+	for (int x=0; x<matrixsize; x++){
+		if (traces[1][x] == true){
+			cout << "\n   A line is drawn down Job Column " << x+1;
+		}
+	}
+	// Step 3: c. Tick all (unticked) rows that have assigned zeros in ticked columns     DOUBLE CHECK=====================
+	for (int x=0; x<matrixsize; x++){
+		for (int y=0; y<matrixsize; y++){
+			if (matrix[x][y] == 0 && traces[1][y] == false){
+				traces[0][x] = true;
+				cout << "\n   A line is drawn across Candidate Row 0" << x+1;
+				break;
+			}
+		}
+	}
+	cout << endl;
+	/*
+	// Display Matrix for "traced" Columns and Rows
+	cout << "\n   ";
+	for (int x=0; x<matrixsize; x++){
+		cout << traces[1][x] << " ";
+	}
+	for (int x=0; x<matrixsize; x++){
+		cout << "\n " << traces[0][x];
+	}
+	cout << endl;
+	system("pause");
+	//*/
+	// Step 3: d. Go back to point 2 unless there are no more columns that need ticking
+	// Step 3: e. Draw a line through every ticked column and every unticked row.
+}

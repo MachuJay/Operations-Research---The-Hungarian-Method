@@ -1,0 +1,78 @@
+int scanlines(float (&matrix)[9][9], int (&indexes)[9][9], int matrixsize){
+	bool zero[9][9];
+	int combinations = 0;
+	// Check for Zeroes in 'replicate' Matrix
+	for (int x=0; x<matrixsize; x++){
+		for (int y=0; y<matrixsize; y++){
+			if (matrix[x][y] == 0){
+				zero[x][y] = true;
+			}
+		}
+	}
+	// Search for Possible Assignments
+	int columnzerocount, rowelement[9];
+	//Column 1 Pass
+	if (columnzerocheck(zero,0,matrixsize) == 0){
+		break;
+	}
+	for (int col1=0; col1<matrixsize; col1++){
+		//Column 2 Pass
+		if (columnzerocheck(zero,1,matrixsize) == 0){
+			break;
+		}
+		for (int col2=0; col2<matrixsize; col2++){
+			//Column 3 Pass
+			if (matrixsize < 3 || columnzerocheck(zero,2,matrixsize) == 0){
+				break;
+			}
+			for (int col3=0; col3<matrixsize; col3++){
+				//Column 4 Pass
+				if (matrixsize < 4 || columnzerocheck(zero,3,matrixsize) == 0){
+					break;
+				}
+				for (int col4=0; col4<matrixsize; col4++){
+					//Column 5 Pass
+					if (matrixsize < 5 || columnzerocheck(zero,4,matrixsize) == 0){
+						break;
+					}
+					for (int col5=0; col5<matrixsize; col5++){
+						//Column 6 Pass
+						if (matrixsize < 6 || columnzerocheck(zero,5,matrixsize) == 0){
+							break;
+						}
+						for (int col6=0; col6<matrixsize; col6++){
+							//Column 7 Pass
+							if (matrixsize < 7 || columnzerocheck(zero,6,matrixsize) == 0){
+								break;
+							}
+							for (int col7=0; col7<matrixsize; col7++){
+								//Column 8 Pass
+								if (matrixsize < 8 || columnzerocheck(zero,7,matrixsize) == 0){
+									break;
+								}
+								for (int col8=0; col8<matrixsize; col8++){
+									//Column 9 Pass
+									if (matrixsize < 9 || columnzerocheck(zero,8,matrixsize) == 0){
+										break;
+									}
+									for (int col9=0; col9<matrixsize; col9++){
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	// Number of Possible Arrangements as Return Value
+	return combinations;
+}
+int columnzerocheck(bool (&zero)[9][9], int column, int matrixsize){
+	int count = 0;
+	for (int x=column; x<matrixsize; x++){
+		if (zero[x][column] == 0){
+			count++;
+		}
+	}
+}

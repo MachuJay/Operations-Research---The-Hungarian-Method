@@ -1,0 +1,56 @@
+// Zero Matrices Display Format
+void zeromatrixdisplay(bool (&zeromatrix)[9][9], int (&matrix)[9][9], int matrixsize, bool (&tick)[2][9], bool ticked){
+	cout << "\n      Job\n  # ";
+	for (int x=0; x<matrixsize; x++){
+		cout << "  " << x+1 << " ";
+	}
+	cout << "\n    " << char(201);
+	for (int x=0; x<matrixsize; x++){
+		cout << char(205) << char(205) << char(205);
+		if (x+1 == matrixsize){cout << char(184);}
+		else {cout << char(209);}
+	}
+	cout << endl;
+	for (int x=0; x<matrixsize; x++){
+		cout << " 0" << x+1 << " " << char(186);
+		for (int y=0; y<matrixsize; y++){
+			cout << right << setw(3);
+			if (zeromatrix[x][y] == false && matrix[x][y] == 0){
+				cout << "X";
+			}
+			else{
+				cout << zeromatrix[x][y];
+			}
+			cout << char(179);
+		}if (ticked == true){
+			if (tick[0][x] == true){
+				cout << "<";
+			}
+		}
+		cout << "\n    ";
+		if (x+1 == matrixsize){cout << char(211);}
+		else {cout << char(199);}
+		for (int y=0; y<matrixsize; y++){
+			cout << char(196) << char(196) << char(196);
+			if (y+1 != matrixsize){
+				if (x+1 == matrixsize){cout << char(193);}
+				else {cout << char(197);}
+				}
+		}
+		if (x+1 == matrixsize){cout << char(217);}
+		else {cout << char(180);}
+		cout << endl;
+	}
+	if (ticked == true){
+		cout << "    ";
+		for (int y=0; y<matrixsize; y++){
+			if (tick[1][y] == true){
+				cout << "  ^ ";
+			}
+			else{
+				cout << "    ";
+			}
+		}
+		cout << endl;
+	}
+}
